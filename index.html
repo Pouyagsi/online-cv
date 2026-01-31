@@ -33,20 +33,18 @@
       font-weight: 300;
     }
 
-    nav {
-      margin-top: 1.2rem;
-    }
+    nav { margin-top: 1.2rem; }
 
     nav a {
       color: #fff;
       margin: 0 8px;
       text-decoration: none;
       font-size: 0.95rem;
+      display: inline-block;
+      padding: 4px 2px;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+    nav a:hover { text-decoration: underline; }
 
     .container {
       max-width: 1000px;
@@ -75,20 +73,30 @@
 
     li { margin-bottom: 0.4rem; }
 
-    .job, .project {
-      margin-bottom: 1.5rem;
-    }
+    .job, .project { margin-bottom: 1.5rem; }
 
     .job em {
       font-size: 0.9rem;
       color: #666;
+      display: inline-block;
+      margin-top: 0.2rem;
+      margin-bottom: 0.4rem;
     }
+
+    .muted { color: #666; }
 
     .contact a {
       display: block;
       color: #004080;
       text-decoration: none;
       margin-bottom: 0.4rem;
+    }
+
+    .contact a:hover { text-decoration: underline; }
+
+    a[target="_blank"]::after {
+      content: " ↗";
+      font-size: 0.85em;
     }
 
     footer {
@@ -100,13 +108,12 @@
 
     @media (max-width: 768px) {
       nav { display: flex; flex-wrap: wrap; justify-content: center; }
-      nav a { margin: 5px; }
+      nav a { margin: 6px; }
+      .container { padding: 2rem 1.2rem; }
     }
 
     @media print {
-      nav, footer {
-        display: none;
-      }
+      nav, footer { display: none; }
       body {
         background: #fff;
         color: #000;
@@ -115,12 +122,16 @@
       section {
         border: none;
         page-break-inside: avoid;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0;
       }
       section h2 {
         color: #000;
         border-left: none;
         border-bottom: 1px solid #000;
+        padding-left: 0;
       }
+      a[target="_blank"]::after { content: ""; }
     }
   </style>
 </head>
@@ -129,16 +140,18 @@
 
 <header>
   <h1>Pouya Gheisari Karestani</h1>
-  <p>Petroleum Engineer | Drilling Automation | Subsurface & Low-Carbon Energy Systems</p>
+  <p>Petroleum Engineer | Drilling Automation | Low-Carbon Subsurface (CCUS / Geothermal)</p>
   <nav>
     <a href="#about">About</a>
     <a href="#focus">Focus Areas</a>
     <a href="#skills">Technical Skills</a>
+    <a href="#sskills">Soft Skills</a>
     <a href="#projects">Projects</a>
     <a href="#experience">Experience</a>
     <a href="#education">Education</a>
     <a href="#certifications">Certifications</a>
     <a href="#publications">Publications</a>
+    <a href="#references">References</a>
     <a href="#languages">Languages</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -146,152 +159,225 @@
 
 <div class="container">
 
-<section id="about">
-  <h2>About Me</h2>
-  <p>
-    I am a petroleum engineer with a Master’s degree from <strong>Politecnico di Torino</strong> and research experience at <strong>NTNU (Norway)</strong>, specializing in drilling automation, subsurface modeling, and data-driven engineering workflows.
-  </p>
-  <p>
-    My Master’s thesis focused on <strong>automated back-pressure control in Managed Pressure Drilling (MPD)</strong>, where I developed Python-based models to stabilize bottom-hole pressure under complex operational constraints. This work strengthened my skills in numerical modeling, control-oriented thinking, and translating physical systems into reliable computational frameworks.
-  </p>
-  <p>
-    I am motivated to apply my background in subsurface engineering, simulation, and programming to research and engineering roles supporting <strong>low-carbon energy technologies</strong>, including CCUS, geothermal systems, and advanced subsurface applications.
-  </p>
-</section>
-
-<section id="focus">
-  <h2>Focus Areas</h2>
-  <ul>
-    <li>Subsurface & Reservoir Modeling</li>
-    <li>Numerical & Computational Modeling</li>
-    <li>Managed Pressure Drilling (MPD) & CML</li>
-    <li>CCUS & Low-Carbon Subsurface Technologies</li>
-    <li>Drilling Automation & Control Systems</li>
-    <li>Energy Systems & Optimization</li>
-  </ul>
-</section>
-
-<section id="skills">
-  <h2>Technical Skills</h2>
-  <ul>
-    <li><strong>Programming:</strong> Python, MATLAB, C++</li>
-    <li><strong>Simulation & Modeling:</strong> COMSOL, Eclipse, Aspen, Pipesim</li>
-    <li><strong>Reservoir Tools:</strong> CMG, Petrel</li>
-    <li><strong>Engineering Domains:</strong> Drilling hydraulics, mud systems, pressure control</li>
-    <li><strong>Data & Workflow:</strong> Excel (analysis), GitHub, Linux, VS Code</li>
-  </ul>
-</section>
-
-<section id="projects">
-  <h2>Projects</h2>
-
-  <div class="project">
-    <strong>Controlled Mud Level (CML) & MPD Simulation Software</strong>
+  <section id="about">
+    <h2>About Me</h2>
     <p>
-      Developed a Python-based simulation tool for static and dynamic MPD scenarios, integrating Power-Law and Herschel–Bulkley rheological models to evaluate pressure stability and control strategies.
+      I am a petroleum engineer with an MSc from <strong>Politecnico di Torino</strong> and research experience at <strong>NTNU (Norway)</strong>, specializing in drilling automation and computational subsurface workflows.
     </p>
-  </div>
-
-  <div class="project">
-    <strong>CO₂ Injection in Depleted Gas Reservoirs</strong>
     <p>
-      CCUS-focused simulation study using Eclipse and Petrel to assess storage behavior and reservoir performance.
+      My Master’s thesis focused on <strong>automated back-pressure control in Managed Pressure Drilling (MPD)</strong>, where I developed Python-based models to stabilize bottom-hole pressure under complex operating conditions. This work strengthened my skills in numerical modeling, algorithmic thinking, and translating physical constraints into reliable computational logic.
     </p>
-  </div>
-
-  <div class="project">
-    <strong>EOR Microscopy Analysis with MATLAB</strong>
     <p>
-      Image-based analysis of asphaltene and foam particle distributions in rock samples to support EOR characterization.
+      I am motivated to apply my background in modeling, simulation, and data-driven engineering to subsurface and low-carbon technologies, including <strong>CCUS</strong> and <strong>geothermal</strong> systems.
     </p>
-  </div>
-</section>
+  </section>
 
-<section id="experience">
-  <h2>Experience</h2>
-
-  <div class="job">
-    <strong>Master’s Thesis Researcher | NTNU (Norway)</strong><br>
-    <em>Feb 2024 – Jul 2024</em>
+  <section id="focus">
+    <h2>Focus Areas</h2>
     <ul>
-      <li>Developed Python-based automated MPD models to stabilize bottom-hole pressure</li>
-      <li>Applied control concepts and real operational data to evaluate system robustness</li>
+      <li>Managed Pressure Drilling (MPD) & Controlled Mud Level (CML)</li>
+      <li>Drilling Automation & Control-Oriented Modeling</li>
+      <li>Subsurface & Reservoir Modeling</li>
+      <li>Numerical Modeling & Simulation</li>
+      <li>CCUS & Low-Carbon Subsurface Technologies</li>
+      <li>Energy Systems & Engineering Optimization</li>
     </ul>
-  </div>
+  </section>
 
-  <div class="job">
-    <strong>Teaching Assistant – Risk Analysis (RAMS) | Politecnico di Torino</strong><br>
-    <em>Feb 2024 – Jul 2024</em>
+  <section id="skills">
+    <h2>Technical Skills</h2>
     <ul>
-      <li>Supported graduate-level instruction in reliability and safety analysis</li>
-      <li>Guided students through quantitative risk assessment projects</li>
+      <li><strong>Programming:</strong> Python, MATLAB, C++, C#</li>
+      <li><strong>Simulation & Modeling:</strong> COMSOL, Eclipse, Aspen, Pipesim</li>
+      <li><strong>Reservoir Tools:</strong> CMG, Petrel</li>
+      <li><strong>Engineering Domains:</strong> Drilling hydraulics, mud systems, pressure control</li>
+      <li><strong>Workflow & Tools:</strong> GitHub, Linux, VS Code</li>
+      <li><strong>Office:</strong> Excel (analysis), Word, PowerPoint</li>
     </ul>
-  </div>
+    <p class="muted"><em>Optional/Other:</em> WordPress (portfolio/website management).</p>
+  </section>
 
-  <div class="job">
-    <strong>Teaching Assistant – Physics Laboratory | Politecnico di Torino</strong><br>
-    <em>Feb 2023 – Jul 2023</em>
+  <section id="sskills">
+    <h2>Soft Skills</h2>
     <ul>
-      <li>Supervised laboratory experiments and ensured safety compliance</li>
-      <li>Mentored students in experimental methods and data interpretation</li>
+      <li>Cross-cultural Collaboration</li>
+      <li>Analytical Problem-solving</li>
+      <li>Communication & Team Collaboration</li>
+      <li>Adaptability and Fast Learning</li>
+      <li>Curiosity and Initiative</li>
+      <li>Mentoring and Peer Support</li>
+      <li>Project and Time Management</li>
     </ul>
-  </div>
-</section>
+  </section>
 
-<section id="education">
-  <h2>Education</h2>
+  <section id="projects">
+    <h2>Projects</h2>
 
-  <div class="job">
-    <strong>MSc Petroleum & Mining Engineering | Politecnico di Torino</strong><br>
-    <em>2021 – 2024</em>
-    <p>GPA: 107/110</p>
-    <p><strong>Thesis:</strong> Digitalization in Drilling – Automated MPD Control</p>
-  </div>
+    <div class="project">
+      <strong>Controlled Mud Level (CML) & MPD Simulation Software</strong>
+      <p>
+        Developed a Python-based simulation tool for static and dynamic MPD scenarios, integrating Power-Law and Herschel–Bulkley rheology models to evaluate pressure behavior and control strategies.
+      </p>
+    </div>
 
-  <div class="job">
-    <strong>BSc Petroleum Engineering | Petroleum University of Technology</strong><br>
-    <em>2016 – 2020</em>
-    <p>Thesis on diffusion processes in porous media</p>
-  </div>
-</section>
+    <div class="project">
+      <strong>CO₂ Injection in Depleted Gas Reservoir (CCUS)</strong>
+      <p>
+        Built a reservoir simulation workflow using Eclipse and Petrel to study CO₂ injection performance and storage-related behavior in a depleted gas reservoir.
+      </p>
+    </div>
 
-<section id="certifications">
-  <h2>Certifications</h2>
-  <ul>
-    <li>Well Operations Crew Resource Management – IWCF (2024)</li>
-    <li>Machine Learning – Stanford University (Coursera)</li>
-    <li>COMSOL, Eclipse, Aspen HYSYS, Pipesim, MATLAB (Certified Courses)</li>
-  </ul>
-</section>
+    <div class="project">
+      <strong>EOR Microscopy Analysis with MATLAB</strong>
+      <p>
+        Performed image-based analysis of asphaltene and foam particle properties in rock cross-section images to support EOR characterization studies.
+      </p>
+    </div>
+  </section>
 
-<section id="publications">
-  <h2>Publications</h2>
-  <ul>
-    <li>
-      Gheisari Karestani, P. et al. (2021). <em>Diffusional Classification of Rocks…</em><br>
-      EAGE Conference. DOI:
-      <a href="https://doi.org/10.3997/2214-4609.202112401" target="_blank">10.3997/2214-4609.202112401</a>
-    </li>
-  </ul>
-</section>
+  <section id="experience">
+    <h2>Experience</h2>
 
-<section id="languages">
-  <h2>Languages</h2>
-  <ul>
-    <li>Persian – Native</li>
-    <li>English – Fluent</li>
-    <li>Italian – A2 (Elementary)</li>
-    <li>Norwegian – A1 (Basic)</li>
-  </ul>
-</section>
+    <div class="job">
+      <strong>Master’s Thesis Researcher | NTNU (Norway)</strong><br>
+      <em>Feb 2024 – Jul 2024</em>
+      <p><strong>Digitalization in Drilling:</strong> Automated Back-Pressure (MPD) Control to Maintain BHP</p>
+      <ul>
+        <li>Developed Python-based models to simulate MPD conditions and evaluate pressure stability</li>
+        <li>Applied operational data and control concepts to improve automated response robustness</li>
+      </ul>
+    </div>
 
-<section id="contact" class="contact">
-  <h2>Contact</h2>
-  <a href="mailto:pouyagheisari@gmail.com">pouyagheisari@gmail.com</a>
-  <a href="https://linkedin.com/in/pouya-gheisari-karestani" target="_blank">LinkedIn</a>
-  <a href="https://github.com/pouyagsi" target="_blank">GitHub</a>
-  <a href="tel:+393792973225">+39 379 297 3225 (Italy)</a>
-</section>
+    <div class="job">
+      <strong>Teaching Assistant – Risk Analysis (RAMS) | Politecnico di Torino</strong><br>
+      <em>Feb 2024 – Jul 2024</em>
+      <ul>
+        <li>Supported graduate-level teaching on Reliability, Availability, Maintainability, and Safety (RAMS)</li>
+        <li>Assisted students with quantitative risk assessment frameworks and project evaluation</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <strong>Teaching Assistant – Physics Lab I | Politecnico di Torino</strong><br>
+      <em>Feb 2023 – Jul 2023</em>
+      <ul>
+        <li>Guided undergraduate experiments and ensured safety compliance and lab discipline</li>
+        <li>Mentored students in measurement methods, data interpretation, and reporting</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <strong>Challenge by Firms | Politecnico di Torino</strong><br>
+      <em>Feb 2023 – Jul 2023</em>
+      <ul>
+        <li>Designed concepts for Renewable Energy Communities supporting rural revitalization</li>
+        <li>Worked in a multidisciplinary team to assess solution feasibility and present outcomes</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <strong>Intern | GOGPC (National Iranian South Oil Company – Production Division)</strong><br>
+      <em>Jun 2019 – Jul 2019</em>
+      <ul>
+        <li>Observed production workflows including separation units, storage systems, and gas lift operations</li>
+        <li>Learned operational safety practices and team coordination in live production environments</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <strong>Intern | NIDC (National Iranian Drilling Company)</strong><br>
+      <em>Jun 2018 – Jul 2018</em>
+      <ul>
+        <li>Supported drilling planning tasks, including BHA selection and review of well schematics</li>
+        <li>Assisted with hydraulic calculations and formation-related considerations</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <strong>Administrative Staff | Ahwaz Technical Training Center (NISOC Conference)</strong><br>
+      <em>Apr 2018 – May 2018</em>
+      <ul>
+        <li>Supported technical event logistics, documentation, and workshop coordination</li>
+        <li>Strengthened organizational skills in a high-activity operational setting</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+
+    <div class="job">
+      <strong>MSc Petroleum and Mining Engineering | Politecnico di Torino, Italy</strong><br>
+      <em>Sep 2021 – Jul 2024</em>
+      <p>GPA: 107/110 (≈4.0/4.0)</p>
+      <p><strong>Thesis:</strong> Digitalization in Drilling – Automated Back-Pressure (MPD) Control for Maintaining Bottom-Hole Pressure</p>
+    </div>
+
+    <div class="job">
+      <strong>BSc Petroleum Engineering | Petroleum University of Technology, Iran</strong><br>
+      <em>Sep 2016 – Sep 2020</em>
+      <p>GPA: 16.1/20 (≈3.27/4.0)</p>
+      <p><strong>Thesis:</strong> Investigation and Determination of the Effective Diffusion Coefficient in Porous Media</p>
+    </div>
+
+    <div class="job">
+      <strong>Diploma in Mathematics and Physics | Kamal High School, Iran</strong><br>
+      <em>Sep 2012 – Sep 2016</em>
+      <p>GPA: 19.76/20 (4.0/4.0) — Top 2% nationally in university entrance examination</p>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <ul>
+      <li>Well Operations Crew Resource Management – IWCF (Jun 2024)</li>
+      <li>Machine Learning Course – Stanford University (Coursera, May 2021)</li>
+      <li>ASPEN HYSYS Course – Petroleum University of Technology (24 hours, Nov 2020)</li>
+      <li>ECLIPSE Course – Petroleum University of Technology (24 hours, Oct 2020)</li>
+      <li>PIPESIM Course – Petroleum University of Technology (32 hours, Oct 2019)</li>
+      <li>COMSOL Course – Negareh Institute (32 hours, Sep 2019)</li>
+      <li>Level 1 Well Control Programme – IWCF (Sep 2019)</li>
+      <li>MATLAB Course – Negareh Institute (24 hours, Sep 2018)</li>
+    </ul>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    <ul>
+      <li>
+        P. Gheisari Karestani, A. Soleymanzadeh, B. Soltani Soulgani (2021).<br>
+        <em>Diffusional Classification of Rocks Based on Analogy Between Mass Transfer and Electrical Flow Through Porous Media.</em><br>
+        Presented at EAGE. DOI:
+        <a href="https://doi.org/10.3997/2214-4609.202112401" target="_blank" rel="noopener">10.3997/2214-4609.202112401</a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="references">
+    <h2>References</h2>
+    <p class="muted">
+      Available upon request. (Academic referees include senior faculty at NTNU, Politecnico di Torino, and Petroleum University of Technology.)
+    </p>
+  </section>
+
+  <section id="languages">
+    <h2>Languages</h2>
+    <ul>
+      <li>🇮🇷 Persian – Native</li>
+      <li>🇬🇧 English – Fluent</li>
+      <li>🇮🇹 Italian – A2 (Elementary)</li>
+      <li>🇳🇴 Norwegian – A1 (Basic)</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <a href="mailto:pouyagheisari@gmail.com">pouyagheisari@gmail.com</a>
+    <a href="mailto:pouya.gheisarikarestani@studenti.polito.it">pouya.gheisarikarestani@studenti.polito.it</a>
+    <a href="https://linkedin.com/in/pouya-gheisari-karestani" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/pouyagsi" target="_blank" rel="noopener">GitHub</a>
+    <a href="tel:+393792973225">Tel: +39 379 297 3225 (Italy)</a>
+  </section>
 
 </div>
 
@@ -301,3 +387,4 @@
 
 </body>
 </html>
+
